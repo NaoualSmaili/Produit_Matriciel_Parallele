@@ -1,4 +1,6 @@
-public class CalculElement implements Runnable {
+import java.util.concurrent.*;
+
+public class CalculElement implements Callable {
     MaMatriceEntiere m, m1, m2;
     int i, j;
     int val = 0;
@@ -12,13 +14,13 @@ public class CalculElement implements Runnable {
     }
 
     @Override
-    public void run() {
+    public Integer call() {
         try {
             val = MaMatriceEntiere.produitUneLigneColonne(m1, i, m2, j);
-            m.setElement(i, j, val);
+            System.out.format("\nCalcul: [%d,%d] = %d Fin du calcul", i, j, val);
         } catch (TaillesNonConcordantesException e) {
             e.printStackTrace();
         }
-        System.out.format("\nCalcul: [%d,%d] = %d Fin du calcul", i, j, val);
+        return val;
     }
 }

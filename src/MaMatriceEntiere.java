@@ -29,9 +29,13 @@ public class MaMatriceEntiere {
         m[i][j] = val;
     }
 
-    public int getNBLignes() { return m.length; }
+    public int getNBLignes() {
+        return m.length;
+    }
 
-    public int getNBColonnes() { return m[0].length; }
+    public int getNBColonnes() {
+        return m[0].length;
+    }
 
     public void printMatrice() {
         for (int[] ints : m) {
